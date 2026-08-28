@@ -1,0 +1,77 @@
+# Songfinch
+
+> Songfinch is a Chicago-based direct-to-consumer music gifting platform that pairs
+> customers with a curated community of independent professional singer-songwriters to
+> produce one-of-a-kind personalized songs. Songfinch operates a two-sided marketplace:
+> a consumer storefront where a buyer chooses an artist and submits the story behind an
+> occasion, and an artist side where independent musicians apply, accept briefs, and
+> write, record and deliver original recordings to a shareable song page.
+
+## Agent-relevant summary
+
+- Songfinch publishes **no public API**, no developer portal, no API reference,
+  no SDKs, no MCP server, and no A2A agent card. There is nothing here for an
+  agent to call programmatically.
+- `api.songfinch.com` resolves and is live, but it is a **private first-party
+  application backend** for the storefront, not a published product. An anonymous
+  GET of its root returns `{"message":"Hello, world!"}`; every documented-looking
+  path (`/v1`, `/api/v1`, `/openapi.json`, `/swagger.json`, `/graphql`) returns
+  `{"status":404,"error":"Not Found"}`.
+- The public website is a client-rendered single-page application. Unknown paths
+  return HTTP 404 with `{"error":"File/Path not found"}`, so link checking is
+  reliable, but page content is not present in the served HTML.
+- Songfinch does publish a valid RFC 9116 `security.txt` on both hosts.
+
+## Products
+
+- Original Song (`personalized-song`, SKU S000001) — $199.99 USD, one-time.
+  An original custom song written and recorded from scratch by a chosen Songfinch
+  artist, delivered in 1-7 days to a personal shareable song page, including up to
+  5 lines of lyrical revisions at no additional charge.
+- Add-ons and merchandise (prices loaded client-side, not machine-readable):
+  extra verse, instrumental, streaming release, vinyl, CD, sheet music,
+  personalized slideshow, custom song poster, lyric prints, soundwave/record/metal
+  QR prints, logo shirt, e-cards, artist gratuity, gift card, small-business
+  rights upgrade, full rights buyout.
+
+## Site
+
+- Home: https://www.songfinch.com/
+- Store / product catalog: https://www.songfinch.com/store
+- How it works: https://www.songfinch.com/how-it-works
+- Song builder: https://www.songfinch.com/song-builder
+- Browse artists: https://www.songfinch.com/artists
+- Song catalog / playlists: https://www.songfinch.com/playlists
+- Song revisions: https://www.songfinch.com/song-revisions
+- Reviews: https://www.songfinch.com/reviews
+
+## For artists
+
+- Artist application: https://www.songfinch.com/apply
+- Artist login: https://www.songfinch.com/login
+
+## Company
+
+- Support / contact: https://www.songfinch.com/contact-us
+- Help center: https://support.songfinch.com/hc
+- Blog: https://blog.songfinch.com/
+- Careers: https://www.songfinch.com/careers
+- Terms of Use: https://www.songfinch.com/terms
+- Privacy Policy: https://www.songfinch.com/privacy
+- GitHub organization: https://github.com/songfinch (11 public repositories, all
+  forks of third-party Ruby/Python/Go libraries — no first-party SDK)
+
+## Security
+
+- security.txt: https://www.songfinch.com/.well-known/security.txt
+- Security contact: security@songfinch.com
+
+## Notes for machine consumers
+
+- Do not infer an API from the presence of `api.songfinch.com`. It is undocumented
+  and unauthenticated calls return 404.
+- Do not trust a 200 from `https://www.songfinch.com/<unknown-path>` alone in a
+  browser-shaped request: the SPA serves a shell with a generic `<title>` for
+  routes that do not exist. Confirm a page is real by checking that its `<title>`
+  differs from "Create a one-of-a-kind custom song with Songfinch", or that the
+  path appears in https://www.songfinch.com/sitemap.xml.

@@ -1,0 +1,34 @@
+generated: '2026-08-28'
+method: probed
+source: https://api.songfinch.com/
+limit_count: 0
+note: >-
+  Songfinch publishes no API rate limits, because it publishes no API. There is
+  no developer portal, no API reference and no documented limits. The only
+  reachable API host, api.songfinch.com, is a private first-party Rails backend
+  serving the storefront; an anonymous GET of its root returns 200
+  {"message":"Hello, world!"} and every other probed path returns
+  {"status":404,"error":"Not Found"}. No rate-limit response headers were
+  observed on that live unauthenticated response.
+observed_headers: []
+headers_absent:
+- X-RateLimit-Limit
+- X-RateLimit-Remaining
+- X-RateLimit-Reset
+- RateLimit-Limit
+- RateLimit-Remaining
+- RateLimit-Reset
+- Retry-After
+exhaustion_status_code: null
+limits: []
+evidence:
+- url: https://api.songfinch.com/
+  status: 200
+  observed: >-
+    Rails backend behind CloudFront + Cloudflare. Response headers were
+    x-runtime, x-frame-options, x-content-type-options, referrer-policy, etag,
+    cache-control, x-request-id — no rate-limit family header present.
+- url: https://api.songfinch.com/v1
+  status: 404
+- url: https://www.songfinch.com/
+  status: 200

@@ -1,0 +1,62 @@
+generated: '2026-08-28'
+method: probed
+source: live GET of /.well-known/* on every Songfinch host
+note: >-
+  Songfinch serves a real RFC 9116 security.txt from BOTH the storefront host
+  (www.songfinch.com) and the application backend host (api.songfinch.com).
+  Every other well-known path 404s on both. www.songfinch.com answers unknown
+  paths with a JSON body {"error":"File/Path not found"} and a 404 status, so
+  these are genuine misses rather than an SPA catch-all; api.songfinch.com
+  answers with {"status":404,"error":"Not Found"}.
+hosts:
+- host: www.songfinch.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: songfinch-security.txt
+    content_type: text/plain; charset=utf-8
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: api.songfinch.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: songfinch-security.txt
+    content_type: text/plain; charset=utf-8
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+security_txt:
+  contact: mailto:security@songfinch.com
+  expires: '2027-04-02T00:00:00Z'
+  preferred_languages: en
+  fields_present:
+  - Contact
+  - Expires
+  - Preferred-Languages
+  fields_absent:
+  - Policy
+  - Encryption
+  - Acknowledgments
+  - Canonical
+  - Hiring
+  rfc9116_valid: true

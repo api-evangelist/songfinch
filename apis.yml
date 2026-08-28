@@ -1,17 +1,34 @@
 aid: songfinch
 name: Songfinch
-description: 'Songfinch is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Songfinch is a Chicago-based direct-to-consumer music gifting platform
+  that pairs customers with a curated community of independent professional
+  singer-songwriters to produce one-of-a-kind personalized songs. A buyer picks an
+  artist by genre, mood and tempo, submits the story and details behind the occasion
+  through a guided song builder, and the artist writes, records and delivers an
+  original recording to a shareable song page, with add-on products spanning lyric
+  prints, vinyl, CDs, sheet music, QR plaques, streaming release and rights
+  upgrades. Songfinch operates a two-sided marketplace — a consumer storefront plus
+  an artist application and artist admin — and has paid out tens of millions of
+  dollars to independent artists. It publishes no public developer program, API
+  documentation, or machine-readable contract; api.songfinch.com is a private
+  first-party application backend for its own storefront.'
 url: https://raw.githubusercontent.com/api-evangelist/songfinch/refs/heads/main/apis.yml
+image: https://content.songfinch.com/res/songfinch/image/statics/logo_sf_ag.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-28'
 modified: '2026-08-28'
 tags:
 - Company
+- Music
+- Marketplace
+- E-Commerce
+- Gifting
+- Consumer
+- Entertainment
+- Creator Economy
+- Personalization
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +37,68 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.songfinch.com/
+- type: Support
+  url: https://www.songfinch.com/contact-us
+- type: HelpCenter
+  url: https://support.songfinch.com/hc
+- type: Blog
+  url: https://blog.songfinch.com/
+- type: Pricing
+  url: https://www.songfinch.com/store
+- type: SignUp
+  url: https://www.songfinch.com/login
+- type: TermsOfService
+  url: https://www.songfinch.com/terms
+- type: PrivacyPolicy
+  url: https://www.songfinch.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/songfinch
+- type: Careers
+  url: https://www.songfinch.com/careers
+- type: SecurityTxt
+  url: well-known/songfinch-security.txt
+- type: WellKnown
+  url: well-known/songfinch-well-known.yml
+- type: Security
+  url: security/songfinch-vulnerability-disclosure.yml
+- type: VulnerabilityDisclosure
+  url: security/songfinch-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/songfinch-domain-security.yml
+- type: Plans
+  url: plans/songfinch-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/songfinch-rate-limits.yml
+- type: LLMsTxt
+  url: llms/songfinch-llms.txt
+x-enrichment:
+  date: '2026-08-28'
+  status: minimal
+  artifacts_added: 7
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Songfinch is a direct-to-consumer custom-song marketplace with no developer
+    program at all — no developer portal, docs host, or API reference resolves
+    (developer/docs/dev/api-docs/partners.songfinch.com all fail DNS), and the
+    one live API host, api.songfinch.com, is a private Rails storefront backend
+    that answers 200 {"message":"Hello, world!"} at its root and
+    {"status":404,"error":"Not Found"} on every OpenAPI, Swagger, GraphQL and
+    docs path probed.
+  evidence:
+  - url: https://api.songfinch.com/
+    status: 200
+  - url: https://api.songfinch.com/openapi.json
+    status: 404
+  - url: https://api.songfinch.com/swagger.json
+    status: 404
+  - url: https://api.songfinch.com/graphql
+    status: 404
+  - url: https://api.songfinch.com/.well-known/agent-card.json
+    status: 404
+  - url: https://www.songfinch.com/.well-known/security.txt
+    status: 200
+  checked: '2026-08-28'

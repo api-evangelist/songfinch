@@ -1,0 +1,74 @@
+generated: '2026-08-28'
+method: probed
+source: https://www.songfinch.com/store
+note: >-
+  Songfinch is a direct-to-consumer commerce company, not an API vendor: it
+  publishes no API plans, no developer tiers and no metered usage pricing. What
+  it does publish is a product catalog. The storefront is a client-rendered SPA,
+  so no pricing is visible in the served HTML body — but the page bootstraps a
+  first-party JSON object (`songProduct`) carrying the flagship product's real
+  list price in cents, which is what is recorded below as `probed`. Prices for
+  the add-on products in `catalog[]` are fetched client-side after page load and
+  are therefore NOT machine-readable from the served document; they are recorded
+  with price: null rather than guessed. Third-party review sites quote a range of
+  figures for these add-ons; none of those are Songfinch-published and none are
+  recorded here.
+currency: USD
+billing_model: one-time purchase (no subscription, no API metering)
+plan_count: 1
+plans:
+- name: Original Song
+  slug: personalized-song
+  sku: S000001
+  price: 199.99
+  price_cents: 19999
+  currency: USD
+  billing_period: one-time
+  product_type: song
+  delivery: 1-7 days
+  included: >-
+    An original custom song written and recorded from scratch by a chosen
+    Songfinch artist, delivered to a personal shareable song page, including
+    access to the lyric editing tool for up to 5 lines of lyrical revisions at
+    no additional charge.
+  source: https://www.songfinch.com/store
+  source_field: songProduct.price (bootstrapped JSON, value in cents)
+  provider_updated_at: '2026-06-29T07:07:09.545-05:00'
+api_plans: 0
+api_plans_note: >-
+  Songfinch publishes no developer plans. There is no developer portal, no API
+  pricing page and no API sign-up; api.songfinch.com is a private first-party
+  application backend for the storefront.
+catalog:
+  note: >-
+    Add-on and merchandise products published in
+    https://www.songfinch.com/sitemap-products.xml. Each has a live product page
+    but its price is loaded client-side, so no price is recorded.
+  product_count: 26
+  products:
+  - {slug: personalized-song, price: null}
+  - {slug: extra-verse, price: null}
+  - {slug: instrumental, price: null}
+  - {slug: song-streaming, price: null}
+  - {slug: personalized-song-vinyl, price: null}
+  - {slug: personalized-song-cd, price: null}
+  - {slug: personalized-song-sheet-music, price: null}
+  - {slug: personalized-slideshow-v2, price: null}
+  - {slug: custom-song-poster, price: null}
+  - {slug: digital-lyric-print, price: null}
+  - {slug: digital-flower-lyric-print, price: null}
+  - {slug: mothers-day-lyric-print, price: null}
+  - {slug: music-note-lyric-print, price: null}
+  - {slug: notepad-lyric-print, price: null}
+  - {slug: love-song-mixtape-digital-print, price: null}
+  - {slug: soundwave-qr-plaque, price: null}
+  - {slug: record-qr-print, price: null}
+  - {slug: metal-qr-print, price: null}
+  - {slug: qr-code-sheet, price: null}
+  - {slug: songfinch-logo-shirt, price: null}
+  - {slug: american-greetings-e-card, price: null}
+  - {slug: customer-greeting, price: null}
+  - {slug: artist-gratuity, price: null}
+  - {slug: gift-card, price: null}
+  - {slug: small-business-rights-upgrade, price: null}
+  - {slug: full-rights-buyout, price: null}
