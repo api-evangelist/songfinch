@@ -13,6 +13,17 @@ description: 'Songfinch is a Chicago-based direct-to-consumer music gifting plat
   documentation, or machine-readable contract; api.songfinch.com is a private
   first-party application backend for its own storefront.'
 url: https://raw.githubusercontent.com/api-evangelist/songfinch/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://content.songfinch.com/res/songfinch/image/statics/logo_sf_ag.png
 x-type: company
 x-source: harvest:secondary-market
